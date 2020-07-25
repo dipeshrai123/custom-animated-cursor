@@ -9,9 +9,10 @@ const boxStyle = {
   pointerEvents: "none",
   position: "absolute",
 };
+
 const AnimatedCursor = () => {
-  const { mouseX, mouseY } = useMouseMove();
-  const animatedMouseX = useAnimatedValue(mouseX - 15);
+  const { mouseX, mouseY } = useMouseMove(); // GETS MOUSE MOVEMENT X AND Y
+  const animatedMouseX = useAnimatedValue(mouseX - 15); // AUTO ANIMATES WHEN MOVING MOUSE
   const animatedMouseY = useAnimatedValue(mouseY - 15);
 
   return (
