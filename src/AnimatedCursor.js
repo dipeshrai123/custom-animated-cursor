@@ -12,8 +12,13 @@ const boxStyle = {
 
 const AnimatedCursor = () => {
   const { mouseX, mouseY } = useMouseMove(); // GETS MOUSE MOVEMENT X AND Y
-  const animatedMouseX = useAnimatedValue(mouseX - 15); // AUTO ANIMATES WHEN MOVING MOUSE
-  const animatedMouseY = useAnimatedValue(mouseY - 15);
+  const animatedMouseX = useAnimatedValue(0);
+  const animatedMouseY = useAnimatedValue(0);
+  
+  useEffect(() => {
+	  animatedMouseX.value = mouseX - 15;
+	  animatedMouseY.value = mouseY - 15;
+  }, [mouseX, mouseY, animatedMouseX, animatedMouseY]);
 
   return (
     <AnimatedBlock
