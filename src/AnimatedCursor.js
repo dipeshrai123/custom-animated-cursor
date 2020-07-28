@@ -12,13 +12,8 @@ const boxStyle = {
 
 const AnimatedCursor = () => {
   const { mouseX, mouseY } = useMouseMove(); // GETS MOUSE MOVEMENT X AND Y
-  const animatedMouseX = useAnimatedValue(0);
-  const animatedMouseY = useAnimatedValue(0);
-  
-  useEffect(() => {
-	  animatedMouseX.value = mouseX - 15;
-	  animatedMouseY.value = mouseY - 15;
-  }, [mouseX, mouseY, animatedMouseX, animatedMouseY]);
+  const animatedMouseX = useAnimatedValue(mouseX - 15);
+  const animatedMouseY = useAnimatedValue(mouseY - 15);
 
   return (
     <AnimatedBlock
@@ -27,7 +22,7 @@ const AnimatedCursor = () => {
         left: animatedMouseX.value,
         top: animatedMouseY.value,
       }}
-    ></AnimatedBlock>
+    />
   );
 };
 
